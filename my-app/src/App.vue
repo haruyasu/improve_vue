@@ -44,7 +44,16 @@
 </template>
 
 <script>
+// import HelloWorld from './components/baseline-flipped';
+// import HelloWorld from './components/baseline';
+// import HelloWorld from './components/centered';
+// import HelloWorld from './components/complex';
+// import HelloWorld from './components/dark';
+// import HelloWorld from './components/google-contacts';
+// import HelloWorld from './components/google-keep';
+// import HelloWorld from './components/google-youtube';
 import HelloWorld from './components/HelloWorld';
+// import HelloWorld from './components/sandbox';
 
 export default {
   name: 'App',
