@@ -1,46 +1,45 @@
 <template>
   <v-app>
-    <v-card width="400" class="mx-auto mt-5">
-      <v-card-title>
-        <h1 class="display-1">Login</h1>
-      </v-card-title>
-      <v-card-text>
-        <v-form>
-          <v-text-field 
-            label="Username"
-            prepend-icon="mdi-account-circle"
-          />
-          <v-text-field 
-            :type="showPassword ? 'text' : 'password'" 
-            label="Password"
-            prepend-icon="mdi-lock"
-            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-            @click:append="showPassword = !showPassword"
-          />
-        </v-form>
-      </v-card-text>
-      <v-divider></v-divider>
-      <v-card-actions>
-        <v-btn color="success">Register</v-btn>
-        <v-spacer></v-spacer>
-        <v-btn color="info">Login</v-btn>
-      </v-card-actions>
-    </v-card>
+    <v-navigation-drawer app v-model="drawer" clipped>Navigation Lists</v-navigation-drawer>
+    <v-app-bar color="primary" dark app clipped-left>
+      <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>Vuetify</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-btn text>For Enterprise</v-btn>
+        <v-menu offset-y>
+          <template v-slot:activator="{on}">
+          <v-btn v-on="on" text>Support</v-btn>
+          </template>
+          <v-list>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>Consulting and support</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>Discord community</v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </v-toolbar-items>
+    </v-app-bar>
+    <v-footer color="primary" dark app>
+      Vuetify
+    </v-footer>
+
+
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
-  name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
-  data: () => ({
-    showPassword: false
-  }),
-};
+  data(){
+    return{
+        drawer: null
+    }
+  }
+}
 </script>
